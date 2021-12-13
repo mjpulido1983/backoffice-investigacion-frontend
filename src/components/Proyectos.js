@@ -2,7 +2,7 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Proyectos = () => {
   const PROYECTOS = gql`
@@ -11,6 +11,7 @@ const Proyectos = () => {
       lider
       nombre
       presupuesto
+      _id
     }
   }
 `;
@@ -25,16 +26,28 @@ const Proyectos = () => {
   if (loading) return "<h1>Cargando</h1>"
   if (error) return "<h1>problemas con el server de graphql</h1>"
 
-  const datosTabla = data.proyectos.map(({ lider, nombre, presupuesto }) => (
-    <tr>
-      <td>{lider}</td>
+  const datosTabla = data.proyectos.map(({ lider, nombre, presupuesto, _id }) => (
+    <tr key={nombre}>
       <td>{nombre}</td>
+      <td>{lider}</td>
       <td>{presupuesto}</td>
+      <td><Link to={`/proyecto/${_id}`}>editar</Link></td>
     </tr>
   ));
 
   return (<div>
-    <table className="table">{datosTabla}</table>
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Nombre Proyecto</th>
+          <th>Lider del Proyecto</th>
+          <th>Presupuesto</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {datosTabla}
+      </tbody></table>
   </div>)
 }
 

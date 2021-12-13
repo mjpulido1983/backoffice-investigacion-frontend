@@ -44,7 +44,7 @@ const CrearProyecto = () => {
                 <label>Presupuesto</label>
                 <input ref={presupuesto => project.presupuesto = presupuesto} placeholder="Presupuesto" />
             </div>
-            <div><button type="submit">Registrar Proyecto</button></div>
+            <div><button className="btn btn-primary" type="submit">Registrar Proyecto</button></div>
         </form>
     </div>)
 }
