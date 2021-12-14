@@ -11,14 +11,13 @@ import {
 
 import Proyectos from './components/Proyectos';
 import CrearProyecto from './components/CrearProyecto';
+import Menu from './components/Menu';
 import ListaUsuarios from './components/ListaUsuarios';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NoExiste from './components/NoExiste';
-import MenuPrincipal from './components/Menu';
+import Login from './components/Autenticar';
 import EditarProyecto from './components/EditarProyecto';
 
-
-localStorage.setItem('auth_token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlc2l0byI6IkVzdHVkaWFudGUiLCJpYXQiOjE2Mzk0MDAzNzQsImV4cCI6MTYzOTQwNzU3NH0.hbhQJNg60W8zpXCGTnWVi12woPXBO1jz8mG4dNRtNPY')
 
 const httpLink = new HttpLink({ uri: 'http://localhost:9092/graphql' });
 
@@ -44,7 +43,8 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={MenuPrincipal} />
+        <Route exact path="/" component={Login} />
+        <Route exact path="/menu" component={Menu} />
         <Route exact path="/usuario" component={ListaUsuarios} />
         <Route exact path="/proyecto" component={CrearProyecto} />
         <Route exact path="/proyecto/listar" component={Proyectos} />

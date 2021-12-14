@@ -28,21 +28,21 @@ const CrearProyecto = () => {
                 lider: project.lider.value
             }})
         }} >
-            <div>
+            <div className="form-group">
                 <label>Nombre Proyecto</label>
-                <input ref={nombre => project.nombreProyecto = nombre} placeholder="Nombre" />
+                <input className="form-control" ref={nombre => project.nombreProyecto = nombre} placeholder="Nombre" />
             </div>
-            <div>
+            <div className="form-group">
                 <label>Objetivos</label>
-                <input ref={objetivos => project.objetivos = objetivos} placeholder="Objetivos" />
+                <input className="form-control" ref={objetivos => project.objetivos = objetivos} placeholder="Objetivos" />
             </div>
-            <div>
+            <div className="form-group">
                 <label>Lider</label>
-                <input ref={lider => project.lider = lider} placeholder="Lider" />
+                <input  className="form-control"ref={lider => project.lider = lider} placeholder="Lider" />
             </div>
-            <div>
+            <div className="form-group">
                 <label>Presupuesto</label>
-                <input ref={presupuesto => project.presupuesto = presupuesto} placeholder="Presupuesto" />
+                <input className="form-control" ref={presupuesto => project.presupuesto = presupuesto} placeholder="Presupuesto" />
             </div>
             <div><button className="btn btn-primary" type="submit">Registrar Proyecto</button></div>
         </form>
