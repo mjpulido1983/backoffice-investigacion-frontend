@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 
 
+
+
 const Login = () => {
     const his = useHistory();
     let user;
@@ -38,17 +40,20 @@ const Login = () => {
         }
     }
 
-    return <div>
-        <form>
-            <h3>Autenticar</h3>
-            <label htmlFor="usernam">Username</label>
-            <input type="text" placeholder="Email" id="username" ref={u => user = u} />
-            <label htmlFor="password">Password</label>
-            <input type="password" placeholder="Password" id="password"
+    return <div class="logo" >
+        <form class="formulario">
+        <img class="formulario__img" src="images/formulario.png" alt="Usuario"/>
+              <input class="formulario__input" type="email" placeholder="Usuario" ref={u => user = u} />
+              <input class="formulario__input" type="password" placeholder="Codigo"
                 value={pass}
                 onChange={changeClave} />
-
-            <button onClick={autenticar}>Log In</button>
+              <select class="formulario__campo">
+                <option disabled selected >Tipo de Usuario</option>
+                <option >Administrador</option>
+                <option >Lider</option>
+                <option >Estudiante</option>
+              </select>
+              <button class="formulario__button" onClick={autenticar}>Log In</button>
         </form>
     </div>
 }
